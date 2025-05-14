@@ -17,7 +17,8 @@ interface AnimePageProps {
 }
 
 export async function generateMetadata({ params }: AnimePageProps): Promise<Metadata> {
-  const anime = await getAnimeById(params.id);
+  const id = await params.id;
+  const anime = await getAnimeById(id);
   
   return {
     title: anime?.title || 'Anime Details',
@@ -169,7 +170,7 @@ async function AnimeContent({ id }: { id: string }) {
 }
 
 export default async function AnimePage({ params }: AnimePageProps) {
-  const id = params.id;
+  const id = await params.id;
   
   return (
     <>
