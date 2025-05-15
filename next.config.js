@@ -11,6 +11,23 @@ const nextConfig = {
     // your project has type errors.
     ignoreBuildErrors: true,
   },
+  images: {
+    domains: [
+      'ghkvnphzaifgjbvmgmcv.supabase.co',
+      'randomuser.me', 
+      'via.placeholder.com',
+      'i.imgur.com',
+      'media.kitsu.io',
+      'cdn.myanimelist.net',
+      'images.unsplash.com'
+    ],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      }
+    ]
+  },
 };
 
 module.exports = nextConfig; 
