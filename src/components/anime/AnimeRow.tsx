@@ -12,14 +12,21 @@ export default function AnimeRow({ title, animes }: AnimeRowProps) {
   if (!animes || animes.length === 0) return null;
   
   return (
-    <section className="mb-8">
+    <section className="netflix-row relative mb-8 px-4 md:px-8">
       <h2 className="text-xl font-semibold mb-4 text-white">{title}</h2>
-      <div className="scroll-container">
-        {animes.map((anime) => (
-          <div key={anime.id} className="flex-shrink-0 w-[180px] md:w-[200px]">
-            <AnimeCard anime={anime} />
-          </div>
-        ))}
+      
+      <div className="relative">
+        {/* Scrollable container */}
+        <div className="flex space-x-4 overflow-x-auto pb-8 scrollbar-hide">
+          {animes.map((anime) => (
+            <div 
+              key={anime.id} 
+              className="flex-shrink-0 w-[200px] md:w-[240px] netflix-card"
+            >
+              <AnimeCard anime={anime} />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

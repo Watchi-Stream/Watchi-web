@@ -86,6 +86,18 @@ body {
   opacity: 1;
 }
 
+.anime-row:hover .netflix-card {
+  transform: translateX(-25%);
+}
+
+.netflix-card:hover ~ .netflix-card {
+  transform: translateX(25%);
+}
+
+.netflix-card:hover {
+  transform: scale(1.2) !important;
+}
+
 .netflix-card {
   @apply transition-all duration-300 ease-in-out;
 }
