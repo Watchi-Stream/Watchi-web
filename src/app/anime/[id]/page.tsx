@@ -170,7 +170,7 @@ async function AnimeContent({ id }: { id: string }) {
   );
 }
 
-export default async function AnimePage({ params, searchParams }: AnimePageProps) {
+export default async function AnimePage({ params, searchParams: _searchParams }: AnimePageProps) {
   const id = params.id;
   
   return (
