@@ -1,5 +1,5 @@
 import { supabase } from './supabase';
-import { Anime, Episode, Favorite, WatchHistory } from '../types';
+import { Anime, Episode, WatchHistory } from '../types';
 
 /**
  * Fetches all anime with optional limit and pagination

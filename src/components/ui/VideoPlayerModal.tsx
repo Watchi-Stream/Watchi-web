@@ -38,7 +38,7 @@ export default function VideoPlayerModal({
     return () => {
       if (controlsTimeout) clearTimeout(controlsTimeout);
     };
-  }, [showControls]);
+  }, [showControls, controlsTimeout]);
 
   // Handle mouse movement to show controls
   const handleMouseMove = () => {

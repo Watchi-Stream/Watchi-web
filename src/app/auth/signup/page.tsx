@@ -40,8 +40,8 @@ export default function SignupPage() {
       setTimeout(() => {
         router.push('/auth/login');
       }, 3000);
-    } catch (err: any) {
-      setError(err.message || 'Failed to sign up');
+    } catch (err: Error | unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to sign up');
       setIsLoading(false);
     }
   };

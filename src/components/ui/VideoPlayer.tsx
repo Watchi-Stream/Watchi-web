@@ -16,7 +16,6 @@ export default function VideoPlayer({ videoUrl, episodeId }: VideoPlayerProps) {
   const [playerReady, setPlayerReady] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isCompleted, setIsCompleted] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Update watch history when progress changes significantly or video completes
   useEffect(() => {
@@ -76,13 +75,11 @@ export default function VideoPlayer({ videoUrl, episodeId }: VideoPlayerProps) {
     
     if (!document.fullscreenElement && playerElement) {
       playerElement.requestFullscreen().then(() => {
-        setIsFullscreen(true);
       }).catch((err) => {
         console.error(`Error attempting to enable fullscreen: ${err.message}`);
       });
     } else if (document.fullscreenElement) {
       document.exitFullscreen().then(() => {
-        setIsFullscreen(false);
       }).catch((err) => {
         console.error(`Error attempting to exit fullscreen: ${err.message}`);
       });

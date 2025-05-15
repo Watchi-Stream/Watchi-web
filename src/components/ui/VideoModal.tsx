@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactPlayer from 'react-player';
 import { X, Play, Pause, Volume2, VolumeX, SkipForward, ArrowLeft, Maximize, Minimize } from 'lucide-react';
@@ -24,7 +24,7 @@ export default function VideoModal({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [progress, setProgress] = useState(0);
   const [showControls, setShowControls] = useState(true);
-  const [controlsTimeout, setControlsTimeout] = useState<NodeJS.Timeout | null>(null);
+  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [formattedTime, setFormattedTime] = useState('0:00 / 0:00');
 
   // Function to transform Streamtape URL to direct embed URL
@@ -84,17 +84,17 @@ export default function VideoModal({
   // Auto-hide controls after 3 seconds
   useEffect(() => {
     if (showControls) {
-      if (controlsTimeout) clearTimeout(controlsTimeout);
+      if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
       
       const timeout = setTimeout(() => {
         setShowControls(false);
       }, 3000);
       
-      setControlsTimeout(timeout);
+      controlsTimeoutRef.current = timeout;
     }
     
     return () => {
-      if (controlsTimeout) clearTimeout(controlsTimeout);
+      if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
     };
   }, [showControls]);
 
@@ -136,6 +136,7 @@ export default function VideoModal({
   // Cleanup on unmount
   useEffect(() => {
     return () => {
+      if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
       if (document.fullscreenElement) {
         document.exitFullscreen().catch(() => {});
       }

@@ -7,11 +7,10 @@ import VideoPlayer from '@/components/ui/VideoPlayer';
 import { Play, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 
 interface EpisodeListProps {
-  animeId: string;
   episodes: Episode[];
 }
 
-export default function EpisodeList({ animeId, episodes }: EpisodeListProps) {
+export default function EpisodeList({ episodes }: EpisodeListProps) {
   const [selectedEpisode, setSelectedEpisode] = useState<Episode | null>(
     episodes.length > 0 ? episodes[0] : null
   );
@@ -40,7 +39,7 @@ export default function EpisodeList({ animeId, episodes }: EpisodeListProps) {
     return (
       <div className="text-center py-12 bg-[#181818] rounded-xl shadow-md">
         <h2 className="text-xl font-semibold mb-3 text-white">No Episodes Available</h2>
-        <p className="text-gray-400">This anime doesn't have any episodes yet.</p>
+        <p className="text-gray-400">This anime doesn&apos;t have any episodes yet.</p>
       </div>
     );
   }

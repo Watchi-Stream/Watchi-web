@@ -112,7 +112,7 @@ export default function SearchPage() {
               </div>
             ) : noResults ? (
               <div className="text-center py-12 bg-[#181818] rounded-lg">
-                <p className="text-white/70 mb-2">We couldn't find what you're looking for</p>
+                <p className="text-white/70 mb-2">We couldn&apos;t find what you&apos;re looking for</p>
                 <p className="text-white/50 text-sm">Try searching with different keywords</p>
               </div>
             ) : (

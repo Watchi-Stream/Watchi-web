@@ -77,7 +77,7 @@ export default function ProfilePage() {
         <h2 className="text-2xl font-semibold mb-6">Watch History</h2>
         
         {watchHistory.length === 0 ? (
-          <p className="text-gray-600 text-center py-4">You haven't watched any episodes yet.</p>
+          <p className="text-gray-600 text-center py-4">You haven&apos;t watched any episodes yet.</p>
         ) : (
           <div className="space-y-4">
             {watchHistory.map((item) => (

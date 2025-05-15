@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { getAnimeById, getEpisodesByAnimeId } from '@/lib/api';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Play, Plus, Calendar, Star, Info, ArrowLeft } from 'lucide-react';
+import { Plus, Calendar, Star, Info, ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import EpisodeList from '@/components/anime/EpisodeList';
@@ -71,7 +71,7 @@ async function AnimeContent({ id }: { id: string }) {
       <div className="container mx-auto px-4 py-20 text-center">
         <div className="bg-[#181818] p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-white mb-4">Anime Not Found</h2>
-          <p className="text-white/70 mb-6">The anime you're looking for doesn't exist or has been removed.</p>
+          <p className="text-white/70 mb-6">The anime you&apos;re looking for doesn&apos;t exist or has been removed.</p>
           <Link href="/" className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#e50914] text-white">
             <ArrowLeft size={16} />
             <span>Back to Home</span>
@@ -161,7 +161,7 @@ async function AnimeContent({ id }: { id: string }) {
         <div className="py-12 px-4 md:px-8 lg:px-12 bg-black">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-semibold mb-8 text-white">Episodes</h2>
-            <EpisodeList episodes={episodes} animeId={id} />
+            <EpisodeList episodes={episodes} />
           </div>
         </div>
       )}
