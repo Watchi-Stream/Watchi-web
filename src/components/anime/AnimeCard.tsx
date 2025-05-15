@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Play, Info } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { Anime } from '@/types';
 
 interface AnimeCardProps {
