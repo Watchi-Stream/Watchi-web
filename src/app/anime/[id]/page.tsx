@@ -14,6 +14,7 @@ interface AnimePageProps {
   params: {
     id: string;
   };
+  searchParams: Record<string, string | string[] | undefined>;
 }
 
 export async function generateMetadata({ params }: AnimePageProps): Promise<Metadata> {
@@ -169,7 +170,7 @@ async function AnimeContent({ id }: { id: string }) {
   );
 }
 
-export default async function AnimePage({ params }: AnimePageProps) {
+export default async function AnimePage({ params, searchParams }: AnimePageProps) {
   const id = params.id;
   
   return (
