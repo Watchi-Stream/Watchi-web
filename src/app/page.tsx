@@ -1,16 +1,13 @@
-"use client";
-
 import { getAnimes } from '@/lib/api';
 import { Suspense } from 'react';
-import { Anime } from '@/types';
 import Navbar from '@/components/layout/Navbar';
-import AnimeCard from '@/components/anime/AnimeCard';
-import HeroBanner from '@/components/anime/HeroBanner';
 import { AnimeRowSkeleton } from '@/components/anime/AnimeCardSkeleton';
 import HeroBannerSkeleton from '@/components/anime/HeroBannerSkeleton';
 import AnimeRow from '@/components/anime/AnimeRow';
+import HeroBanner from '@/components/anime/HeroBanner';
 
-export const revalidate = 3600; // Revalidate every hour
+// Enable revalidation every hour
+export const revalidate = 3600;
 
 // Loading component with skeleton loaders
 function HomeLoading() {
